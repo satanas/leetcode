@@ -1,0 +1,35 @@
+CSSselect|Felix Boehm|me@feedic.com|0.3.11|CSSwhat:domutils|232257|git://github.com/fb55/CSSselect.git
+cookie-jar|Mikeal Rogers|mikeal.rogers@gmail.com|0.3.0||235068|https://github.com/mikeal/cookie-jar
+cookie|Roman Shtylman|shtylman@gmail.com|0.0.4||74127|git://github.com/shtylman/node-cookie.git
+crc|Alex Gorbatchev|alex.gorbatchev@gmail.com|0.2.0||116925|git://github.com/alexgorbatchev/node-crc.git
+crc32|T. Jameson Little|t.jameson.little@gmail.com|0.2.2||49741|http://github.com/beatgammit/crc32.git
+cryptiles|Eran Hammer|eran@hueniverse.com|0.2.2|boom|299895|git://github.com/hueniverse/cryptiles
+cssom|Nikita Vasilyev|me@elv1s.ru|0.2.5||200068|git://github.com/NV/CSSOM.git
+simple-app|||0.1.0||7023|
+async|Caolan McMahon||0.2.9||18589|https://github.com/caolan/async.git
+colors|Marak Squires||0.6.0-1||31256|http://github.com/Marak/colors.js.git
+eyes|Alexis Sellier|self@cloudhead.net|0.1.8||189535|
+faye-websocket|James Coglan|jcoglan@gmail.com|0.4.4||299981|git://github.com/faye/faye-websocket-node.git
+fileapi|||0.0.0|express:ansi|225548|git://github.com/einaros/ws.git
+fileset|mklabs||0.1.5|minimatch:glob|227113|git://github.com/mklabs/node-fileset.git
+mocha|TJ Holowaychuk|tj@vision-media.ca|1.8.2|commander:express:jade:eyes:debug:cookie:ms|232410|git://github.com/visionmedia/mocha.git
+findup-sync|"Cowboy" Ben Alman||0.1.2|glob:lodash|72250|git://github.com/cowboy/node-findup-sync.git
+forever-agent|Mikeal Rogers|mikeal.rogers@gmail.com|0.5.0||3403|https://github.com/mikeal/forever-agent
+form-data|Felix Geisendörfer|felix@debuggable.com|0.0.8|combined-stream:mime:async|298768|git://github.com/felixge/node-form-data.git
+lru-cache|Isaac Z. Schlueter|i@izs.me|2.3.0||63709|git://github.com/isaacs/node-lru-cache.git
+grunt-urequire|Alexander Early|alexander.early@gmail.com|0.3.1|urequire|191852|https://github.com/aearly/grunt-urequire
+grunt-usemin|Chrome Developer Relations||0.1.12||264219|git://github.com/yeoman/grunt-usemin.git
+grunt|"Cowboy" Ben Alman||0.4.1|async:coffee-script:colors:dateformat:eventemitter2:findup-sync:glob:hooker:iconv-lite:minimatch:nopt:rimraf:lodash:underscore.string:which:js-yaml|215723|git://github.com/gruntjs/grunt.git
+gzip-js|T. Jameson Little|t.jameson.little@gmail.com|0.3.2|crc32:deflate-js|65089|git://github.com/beatgammit/gzip-js.git
+handlebars|||1.0.12|optimist:uglify-js|291945|git://github.com/wycats/handlebars.js.git
+hawk|Eran Hammer|eran@hueniverse.com|0.13.1|hoek:boom:cryptiles:sntp|136442|git://github.com:myuser/hueniverse/hawk
+hoek|Eran Hammer|eran@hueniverse.com|0.9.1||289951|git://github.com/spumko/hoek
+hogan.js|Twitter Inc.||2.0.0||228315|https://s3.amazonaws.com/notwitter/hogan.js.git
+lodash|John-David Dalton|john.david.dalton@gmail.com|1.1.1||71898|https://github.com/bestiejs/lodash.git
+html-minifier|||0.4.5||15109|git://github.com/kangax/html-minifier
+eventemitter2|hij1nx|paolo@async.ly|0.4.12||12439|git://github.com/hij1nx/EventEmitter2.git
+htmlparser|Chris Winberry|chris@winberry.net|1.7.6||236992|https://github.com/tautologistics/node-htmlparser
+minimatch|Isaac Z. Schlueter|i@izs.me|0.2.12|lru-cache:sigmund|268137|git://github.com/isaacs/minimatch.git
+express|TJ Holowaychuk|tj@vision-media.ca|0.1.8|mime:mocha:lodash:sntp|189535|https://github.com/visionmedia/express.git
+sigmund|Isaac Z. Schlueter|i@izs.me|1.0.0||206630|git://github.com/isaacs/sigmund
+glob|Isaac Z. Schlueter|i@izs.me|3.1.21|minimatch|188446|git://github.com/isaacs/node-glob.git
