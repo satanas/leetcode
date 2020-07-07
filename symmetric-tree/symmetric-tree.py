@@ -58,14 +58,9 @@ class Solution:
         elif node_a is None or node_b is None:
             return False
 
-        if node_a.val == node_b.val:
-            branch1_is_symmetric = self.are_nodes_symmetric(node_a.left, node_b.right)
-            branch2_is_symmetric = self.are_nodes_symmetric(node_a.right, node_b.left)
-            return branch1_is_symmetric and branch2_is_symmetric
-        elif node_a is None and node_b is None:
-            return True
-        else:
-            return False
+        return node_a.val == node_b.val and \
+            self.are_nodes_symmetric(node_a.left, node_b.right) and \
+            self.are_nodes_symmetric(node_a.right, node_b.left)
 
 if __name__ == "__main__":
 
