@@ -5,7 +5,7 @@ def longest_substring_with_k_distinct(str, k):
 
     for window_end, char in enumerate(str):
         window_string.append(char)
-        unique_chars = gi
+        unique_chars = len(set(window_string))
         
         if unique_chars <= k:
             longest_substr = max(longest_substr, len(window_string))
