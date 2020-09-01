@@ -66,49 +66,38 @@ class TreeNode:
         self.right = right
 
 class Solution:
-    def deleteNode(self, root, key):
-        if root is None:
-            return None
-        if root.val == key and root.left is None and root.right is None:
-            return None
-        
-        self.bst_deletion(None, root, key)
-        return root
-
-    def bst_deletion(self, prev, node, key):
+    def deleteNode(self, node, key): # 2
         if node is None:
-            return
+            return None
 
-        if node.val == key:
-            if node.left is not None:
-                temp_right = node.right
-                self.copy_node(node.left, node)
-                if prev is not None:
-                    prev.left = node
-                prev_node = node
-                next_right = node.right
-                while next_right is not None:
-                    prev_node = next_right
-                    next_right = prev_node.right
-                prev_node.right = temp_right
-            elif node.right is not None:
-                self.copy_node(node.right, node)
-            else:
-                node = None
-                if prev.val < key:
-                    prev.right = None
-                else:
-                    prev.left = None
+        if key > node.val:
+            node.right = self.deleteNode(node.right, key)
+        elif key < node.val:
+            node.left = self.deleteNode(node.left, key)
         else:
-            if key < node.val:
-                return self.bst_deletion(node, node.left, key)
+            # case 1: no children
+            if node.left is None and node.right is None:
+                node = None
+            # case 2: one child (left)
+            elif node.left is not None and node.right is None:
+                node = node.left
+            # case 3: one child (right)
+            elif node.left is None and node.right is not None:
+                node = node.right
+            # case 4: two children
             else:
-                return self.bst_deletion(node, node.right, key)
+                temp_right = node.right
+                max_left = self.find_max_right_subtree(node.left)
+                node = node.left
+                max_left.right = temp_right
 
-    def copy_node(self, src_node, dst_node):
-        dst_node.val = src_node.val
-        dst_node.left = src_node.left
-        dst_node.right = src_node.right
+        return node
+
+    def find_max_right_subtree(self, node):
+        if node.right is None:
+            return node
+        else:
+            return self.find_max_right_subtree(node.right)
 
 def traverse_preorder(node, result):
     if node is not None:
