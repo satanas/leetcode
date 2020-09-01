@@ -65,6 +65,8 @@ class TreeNode:
         self.left = left
         self.right = right
 
+# https://helloacm.com/how-to-delete-a-node-from-a-binary-search-tree/
+
 class Solution:
     def deleteNode(self, node, key): # 2
         if node is None:
