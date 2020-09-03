@@ -20,6 +20,9 @@
 # If true, then profit!
 # Otherwise, we move to the next element of the array
 
+# Third approach:
+# Like the second but iterating through the subarray with a binary search tree
+
 # Input: nums = [1,2,3,1], k = 3, t = 0
 # Output: true
 
@@ -28,25 +31,27 @@
 # i = 0, j = 2, abs(1 - 3) = 2. Bigger than t, next
 # i = 0, j = 3, abs(1 - 1) = 0 => Equals to t, abs(0 - 3) = 3. Equals to k. Profit!
 
+from sortedcontainers import SortedList
+
 class Solution:
     def containsNearbyAlmostDuplicate(self, nums, k, t):
-        if k == 0:
+        if k <= 0 or t < 0:
             return False
-        print(len(nums))
-        for i in range(len(nums) - 1):
-            j = min(i + k + 1, len(nums))
-            num = nums[i]
-            subarray = nums[i + 1 : j]
-            subarray = sorted(subarray)
-            print(f"subarray: {subarray} - sorted subarray: {subarray} - k: {k} - j: {j} - i: {i}")
-            h = 0
-            while h < j - i - 1:
-                print(f"num: {num} - subarray[{h}]: {subarray[h]} - abs: {abs(num - subarray[h])} - t: {t} - h: {h}")
-                if abs(num - subarray[h]) <= t:
+
+        sorted_subarray = SortedList()
+        for i, num in enumerate(nums):
+            if i > k:
+                sorted_subarray.remove(nums[i - k - 1])
+                pos1 = bisect_left(sorted_subarray, num - t)
+                pos2 = bisect_right(sorted_subarray, num + t)
+
+                if pos1 != pos2:
                     return True
-                else:
-                    h += 1
-        return False
+            sorted_subarray.add(num)
+        return
+
+            
+
 
 if __name__ == "__main__":
     s = Solution()
@@ -58,3 +63,4 @@ if __name__ == "__main__":
     print(s.containsNearbyAlmostDuplicate([1, 2], 0, 1))
     print(s.containsNearbyAlmostDuplicate([7, 2, 8], 2, 1))
     print(s.containsNearbyAlmostDuplicate([-1,-1], 1, 0))
+    print(s.containsNearbyAlmostDuplicate([2, 1], 1, 1))
