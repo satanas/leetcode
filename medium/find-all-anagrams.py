@@ -11,28 +11,44 @@
 # If they are equal, we push the index of the start of the sliding window to the results array
 # We slide the window one more char
 
+# Second approach using a hashmap instead of sorting
+
 class Solution:
     def findAnagrams(self, s, p):
+        if len(p) > len(s):
+            return []
+        
         start = 0
-        end = 0
-        sorted_p = self.sort_string(p)
-        lenght_p = len(p)
+        end = len(p) - 1
+        p_dict = {}
+        s_dict = {}
+        for i in range(len(p)):
+            self.update_hashmap(p_dict, "", p[i])
+            self.update_hashmap(s_dict, "", s[i])
+        length_p = len(p)
         substring = ""
         results = []
-        while end <= len(s):
-            if end - start > lenght_p:
-                substring = substring[1:]
+        while end <= len(s) - 1:
+            if end - start > length_p - 1:
                 start += 1
-            if end - start == lenght_p:
-                sorted_substring = self.sort_string(s[start:end])
-                if sorted_substring == sorted_p:
-                    results.append(start)
+                self.update_hashmap(s_dict, s[start - 1], s[end])
+            # print(f"start: {start} - end: {end}")
+            # print(f"pdict: {p_dict} - sdict: {s_dict}")
+            if p_dict == s_dict:
+                results.append(start)
             end += 1
         return results
 
-    def sort_string(self, str):
-        return ''.join(sorted(str))
+    def update_hashmap(self, hashmap, old_char, new_char):
+        if new_char in hashmap:
+            hashmap[new_char] += 1
+        else:
+            hashmap[new_char] = 1
 
+        if old_char in hashmap:
+            hashmap[old_char] -= 1
+            if hashmap[old_char] <= 0:
+                del hashmap[old_char]
 
 if __name__ == "__main__":
     s = Solution()
@@ -40,3 +56,4 @@ if __name__ == "__main__":
     print(s.findAnagrams("abab", "ab"))
     print(s.findAnagrams("", "ab"))
     print(s.findAnagrams("ab", "abcd"))
+    print(s.findAnagrams("      ", "ab"))
