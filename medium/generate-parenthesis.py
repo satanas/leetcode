@@ -6,7 +6,7 @@
 # If valid, we add the new set to the result set
 # We iterate until we have added 3 open parentheses.
 
-class Solution:
+class Solution1:
     def generateParenthesis(self, n):
         if n < 0:
             return []
@@ -48,8 +48,22 @@ class Solution:
             return False
         #print(f"  true =>  o: {opened} - c: {closed}")
         return True
-        
-                    
+
+class Solution:
+    def generateParenthesis(self, n):
+        self.results = []
+        self.recursive_generation("", 0, 0, n)
+        return self.results
+
+    def recursive_generation(self, elem, opening, closing, n):
+        if opening - closing == 0 and len(elem) == 2 * n:
+            self.results.append(elem)
+
+        if opening < n:
+            self.recursive_generation(elem + "(", opening + 1, closing, n)
+        if closing < opening:
+            self.recursive_generation(elem + ")", opening, closing + 1, n)
+
 if __name__ == "__main__":
     s = Solution()
     print(s.generateParenthesis(3))
