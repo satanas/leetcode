@@ -15,9 +15,6 @@
 
 
 class Solution:
-
-    VALID_WITH_ZERO = ["10", "20"]
-
     def numDecodings(self, s):
         if s[0] == "0":
             return 0
@@ -27,34 +24,47 @@ class Solution:
             new_results = []
             for item in results:
                 last_digit = item[-1]
-                print(f"processing item: {item} - last_digit: {last_digit} - num: {num}")
+                #print(f"processing item: {item} - last_digit: {last_digit} - num: {num}")
                 first_item = list(item)
-                if num != "0":
-                    first_item.append(num)
-                print(f"adding first item: {first_item}")
+                first_item.append(num)
+                #print(f"adding first item: {first_item}")
                 new_results.append(first_item)
                 if len(last_digit) <= 1:
                     temp = last_digit + num
-                    print(f"temp: {temp}")
+                    #print(f"temp: {temp}")
                     if int(temp) <= 26:
                         new_item = item[:-1]
                         new_item.append(temp)
-                        print(f"adding new item: {new_item}")
+                        #print(f"adding new item: {new_item}")
                         new_results.append(new_item)
-                print(new_results)
+                #print(new_results)
             results = new_results
-        return len(results)
+        
+        total = 0
+        for r in results:
+            if self.validate(r):
+                total += 1
+        return total
+
+    def validate(self, result):
+        for r in result:
+            if r == "0":
+                return False
+            if len(r) == 2 and r[0] == "0":
+                return False
+        return True
 
 if __name__ == "__main__":
     s = Solution()
-    # print(s.numDecodings("12"))
-    # print(s.numDecodings("226"))
-    # print(s.numDecodings("2216"))
-    # print(s.numDecodings("0"))
-    # print(s.numDecodings("7"))
-    # print(s.numDecodings("10"))
-    # print(s.numDecodings("00"))
-    # print(s.numDecodings("0010110"))
+    print(s.numDecodings("12"))
+    print(s.numDecodings("226"))
+    print(s.numDecodings("2216"))
+    print(s.numDecodings("0"))
+    print(s.numDecodings("7"))
+    print(s.numDecodings("10"))
+    print(s.numDecodings("00"))
+    print(s.numDecodings("0010110"))
     print(s.numDecodings("206"))
+    print(s.numDecodings("100"))
 
         
