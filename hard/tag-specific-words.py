@@ -105,10 +105,8 @@ def tag_speficic_word_iteration(review, tags):
                 # print("word %s already tagged" % (lowercase_review[index:index + len(tag)]))
                 continue
             current_tags.add((index, index + len(tag), lowercase_tags[tag]))
-            print("current_tags", current_tags)
 
     sorted_current_tags = sorted(current_tags)
-    print(sorted_current_tags)
     i = 0
     parsed_review = ""
     while i < len(review):
@@ -142,11 +140,26 @@ def is_tagged(current_tags, index):
 
 
 
-print(tag_speficic_word("""I visited San Francisco for work and stayed at HotelCo.
-I really loved the city and the home where I stayed.""", tags))
+# print(tag_speficic_word("""I visited San Francisco for work and stayed at HotelCo.
+# I really loved the city and the home where I stayed.""", tags))
 
-print(tag_speficic_word("""Francisco visited San Francisco for work and stayed at HotelCo.
-He really loved the city and the home where he stayed.""", tags))
+# print(tag_speficic_word("""Francisco visited San Francisco for work and stayed at HotelCo.
+# He really loved the city and the home where he stayed.""", tags))
 
-print(tag_speficic_word("""I visited San Francisco for work and stayed at HotelCo, San Francisco.
-I really loved San Francisco and the home where I stayed.""", tags))
+# print(tag_speficic_word("""I visited San Francisco for work and stayed at HotelCo, San Francisco.
+# I really loved San Francisco and the home where I stayed.""", tags))
+
+
+
+more_tags = {
+    "san": "person",
+    "francisco": "person",
+    "san francisco": "city",
+    "HotelCo": "business",
+    "city": "location",
+}
+
+print(tag_speficic_word_iteration("""I traveled to San Francisco for work and stayed at HotelCo.
+I really loved the city and the home where I stayed.
+I stayed with San and Francisco.
+They both were really good hosts and san’s hospitality was outstanding.""", more_tags))
